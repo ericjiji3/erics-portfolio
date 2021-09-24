@@ -1,0 +1,115 @@
+body{
+    font-family: 'Signika', sans-serif;
+    background-color: #D1916C;
+}
+.heading{
+    font-size: 3em;
+    /*font-style: italic;*/
+    text-align: center;
+    color: #813232;
+    filter: drop-shadow(3px 3px 6px #FF000075);
+}
+
+.navigation-menu{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.navigation-menu .tabs{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.navigation-menu .tabs a{
+    display: inline-grid;
+    margin: 0 55px;
+}
+
+.navigation-menu .tabs a img{
+    margin: auto;
+}
+
+
+.photo-gallery{
+    display: flex;
+}
+.photo-gallery .column-1{
+    position: relative;
+    width: 60%;
+    margin-left: 75px;
+}
+.photo-gallery .column-1 .picture-cat{
+    position: absolute;
+    height: auto;
+    width: 30%;
+    top: 50px;
+    right: 50px;
+}
+.photo-gallery .column-1 .picture-sun{
+    position: absolute;
+    height: auto;
+    width: 40%;
+    top: 0;
+    left: 150px;
+}
+.photo-gallery .column-1 .picture-buddha{
+    position: absolute;
+    width: 45%;
+    height: auto;
+    top: 300px;
+    right: 0;
+}
+.photo-gallery .column-1 .picture-banana{
+    position: absolute;
+    width: 35%;
+    height: auto;
+    top: 250px;
+    left: 0;
+}
+.photo-gallery .column-2{
+    position: relative;
+    width: 10%;
+    overflow: hidden;
+    /*transform: rotate(90deg);*/
+    /*white-space: nowrap;*/
+}
+.photo-gallery .column-2 span{
+    position: absolute;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    animation: demo-1 10s linear infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+@keyframes demo-1 {
+    0%   {
+        -moz-transform: translateY(100%); /* Firefox bug fix */
+        -webkit-transform: translateY(100%); /* Firefox bug fix */
+        transform: translateY(100%);
+    }
+    100% {
+        -moz-transform: translateY(-100%); /* Firefox bug fix */
+        -webkit-transform: translateY(-100%); /* Firefox bug fix */
+        transform: translateY(-100%);
+    }
+}
+.photo-gallery .column-3{
+    position: relative;
+    width: 30%;
+    margin-right: 75px;
+}
+
+
+.photo-gallery .column-3 .picture-sky{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
