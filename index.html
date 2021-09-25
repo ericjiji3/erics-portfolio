@@ -7,51 +7,134 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <h1 class="heading">Eric Ji</h1>
     <nav class="navigation-menu">
         <ul class="tabs">
-            <li>
-                <a>
+            <li class="tab">
+                <a class="tab-home">
                     <img src="assets/house.png" width="30" height="30">
-                    <span>HOME</span>
+                    <span class="tab-text">HOME</span>
                 </a>
             </li>
-            <li>
-                <a>
+            <li class="tab">
+                <a class="tab-contact">
                     <img src="assets/call.png" width="30" height="30">
-                    <span>CONTACT</span>
+                    <span class="tab-text">CONTACT</span>
                 </a>
             </li>
-            <li>
-                <a>
+            <li class="tab">
+                <a class="tab-portfolio">
                     <img src="assets/portfolio.png" width="30" height="30">
-                    <span>PORTFOLIO</span>
+                    <span class="tab-text">PORTFOLIO</span>
                 </a>
             </li>
-            <li>
-                <a>
+            <li class="tab">
+                <a class="tab-about">
                     <img src="assets/business-card.png" width="30" height="30">
-                    <span>ABOUT ME</span>
+                    <span class="tab-text">ABOUT ME</span>
                 </a>
             </li>
         </ul>
     </nav>
-    <div class="photo-gallery">
-        <div class="column-1">
-            <img class="picture-cat" src="assets/orange-cat.jpg">
-            <img class="picture-sun" src="assets/sun.png">
-            <img class="picture-buddha" src="assets/buddha.jpg">
-            <img class="picture-banana" src="assets/funny-banana.jpg">
+    <div class="content">
+        <div class="photo-gallery" data-visible="visible">
+            <div class="column-1">
+                <img class="picture-cat" src="assets/orange-cat.jpg">
+                <img class="picture-sun" src="assets/sun.png">
+                <img class="picture-buddha" src="assets/buddha.jpg">
+                <img class="picture-banana" src="assets/funny-banana.jpg">
+            </div>
+            <div class="column-2">
+                <span>HOME  HOME  HOME  HOME  HOME  HOME  HOME  HOME  HOME  HOME</span>
+            </div>
+            <div class="column-3">
+                <img class="picture-sky" src="assets/sky.jpg">
+            </div>
         </div>
-        <div class="column-2">
-            <span>yesssir</span>
+
+        <div class="contact" data-visible="hidden">
+            <div class="column-1">
+                <span>Nice to meet you <input type="text" id="first-name" placeholder="First Name"><input type="text" id="last-name" placeholder="Last Name">!</span>
+                <span>How's your day been?</span>
+                <span>How can I help you?</span>
+            </div>
+            <div class="column-2">
+                <span>CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT</span>
+            </div>
+            <div class="column-3">
+                <img class="picture-sky" src="assets/sky.jpg">
+            </div>
         </div>
-        <div class="column-3">
-            <img class="picture-sky" src="assets/sky.jpg">
+
+        <div class="portfolio" data-visible="hidden">
+            <div class="column-1">
+                PORTFOLIO
+            </div>
+            <div class="column-2">
+                <span>PORTFOLIO  PORTFOLIO  PORTFOLIO  PORTFOLIO  PORTFOLIO  PORTFOLIO</span>
+            </div>
+            <div class="column-3">
+                <img class="picture-sky" src="assets/sky.jpg">
+            </div>
+        </div>
+
+        <div class="about" data-visible="hidden">
+            <div class="column-1">
+                <h2>Hi, Im Eric Ji!</h2>>
+                <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </span>
+            </div>
+            <div class="column-2">
+                <span>ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT</span>
+            </div>
+            <div class="column-3">
+                <img class="picture-sky" src="assets/sky.jpg">
+            </div>
         </div>
     </div>
+
+    <script>
+      $('.tabs .tab .tab-home').click(function(){
+          $('.content .photo-gallery').attr('data-visible', 'visible');
+          $('.content .about').attr('data-visible', 'hidden');
+          $('.content .contact').attr('data-visible', 'hidden');
+          $('.content .portfolio').attr('data-visible', 'hidden');
+      })
+      $('.tabs .tab .tab-contact').click(function(){
+            $('.content .contact').attr('data-visible', 'visible');
+            $('.content .photo-gallery').attr('data-visible', 'hidden');
+            $('.content .about').attr('data-visible', 'hidden');
+            $('.content .portfolio').attr('data-visible', 'hidden');
+      })
+      $('.tabs .tab .tab-portfolio').click(function(){
+            $('.content .portfolio').attr('data-visible', 'visible');
+            $('.content .contact').attr('data-visible', 'hidden');
+            $('.content .photo-gallery').attr('data-visible', 'hidden');
+            $('.content .about').attr('data-visible', 'hidden');
+      })
+      $('.tabs .tab .tab-about').click(function(){
+            $('.content .about').attr('data-visible', 'visible');
+            $('.content .photo-gallery').attr('data-visible', 'hidden');
+            $('.content .contact').attr('data-visible', 'hidden');
+            $('.content .portfolio').attr('data-visible', 'hidden');
+            
+      })
+
+      $('.content .contact .column-1 #first-name').attr('size',$('.content .contact .column-1 #first-name').attr('placeholder').length);
+      $('.content .contact .column-1 #last-name').attr('size',$('.content .contact .column-1 #last-name').attr('placeholder').length);
+      $('.content .contact .column-1 #first-name').on('input', function(){
+          var adjustFirstWidth = $(this).val().length + "ch";
+          $(this).width(adjustFirstWidth);
+      })
+      $('.content .contact .column-1 #last-name').on('input', function(){
+          var adjustLastWidth = $(this).val().length + "ch";
+          $(this).width(adjustLastWidth);
+      })
+    </script>
 
 
 </body>
